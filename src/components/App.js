@@ -7,14 +7,18 @@ import ForgotPassword from './Auth/ForgotPassword';
 import SearchLinks from './Link/SearchLinks';
 import LinkList from './Link/LinkList';
 import LinkDetail from './Link/LinkDetail';
-
+import Header from './Header';
 /*
 *
 * the first route is the route page to redirect to the home page
+* on this section we added container for the header and route containers wraped by div.
 */
 function App() {
   return (
     <BrowserRouter>
+      <div className="app-container">
+        <Header />
+      <div className="route-container">
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/new/1" />} />
         <Route path="/create" component={CreateLink} />
@@ -25,6 +29,8 @@ function App() {
         <Route path="/new/:page" component={LinkList} />
         <Route path="/link/:linkId" component={LinkDetail} />
       </Switch>
+      </div>
+      </div>
     </BrowserRouter>
   );
 }
