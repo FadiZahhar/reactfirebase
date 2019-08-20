@@ -1,26 +1,44 @@
 import React from "react";
 
+import userFormValidation from './useFormValidation';
+
+const INITIAL_STATE = {
+  name: "",
+  email: "",
+  password: ""
+}
+
 function Login(props) {
-  const [login, setLogin] = React.useState(true)
+  const { handleSubmit, handleChange, values } = userFormValidation(INITIAL_STATE)
+  const [login, setLogin] = React.useState(true);
   return (
      <div>
        <h2 className="mv3">{ login ? "Login" : "Create Account" }</h2>
-       <form className="flex flex-column">
+       <form onSubmit={handleSubmit} className="flex flex-column">
          {!login && <input type="text" placeholder="your name" autoComplete="off" />}
          <input
+          onChange={handleChange}
+          value={values.name}
+          name="name"
           type="text"
           placeholder="Your name"
-          autocomplete="off"
+          autoComplete="off"
           />
 
         <input
+          onChange={handleChange}
+          value={values.email}
+          name="email"
           type="email"
           placeholder="Your email"
-          autocomplete="off"
+          autoComplete="off"
           />
 
 
         <input
+          onChange={handleChange}
+          value={values.email}
+          name="password"
           type="password"
           placeholder="Choose a secure password"
           />
