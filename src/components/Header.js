@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -7,7 +7,7 @@ function Header() {
       <div className="flex">
         <img src="/logo.png" alt="Hooks News Logo" className="logo" />
         <NavLink to="/" className="header-title">
-          Hooks New
+          Hooks News
         </NavLink>
         <NavLink to="/" className="header-link">
           new
@@ -26,13 +26,12 @@ function Header() {
         </NavLink>
       </div>
       <div className="flex">
-      <NavLink to="/login" className="header-link">
+        <NavLink to="/login" className="header-link">
           login
         </NavLink>
       </div>
-
     </div>
-    )
+  );
 }
 
 export default withRouter(Header);
